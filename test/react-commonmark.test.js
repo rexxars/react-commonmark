@@ -207,7 +207,7 @@ describe('ReactCommonmark', function() {
 
     it('allows a walker callback', function() {
         var walker = function(event) {
-            if (event.entering && event.node.type === 'Strong') {
+            if (event.entering && event.node.type === 'strong') {
                 event.node.firstChild.literal = 'walker';
             }
         };

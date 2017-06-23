@@ -28,22 +28,22 @@
   "author": "Espen Hovlandsdal <espen@hovlandsdal.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/react": "^15.0.21",
+    "@types/react": "^15.0.31",
     "buble-loader": "^0.4.1",
-    "chai": "^3.5.0",
-    "eslint": "^3.19.0",
+    "chai": "^4.0.2",
+    "eslint": "^4.0.0",
     "eslint-config-vaffel": "^5.0.0",
-    "eslint-plugin-react": "^6.10.3",
+    "eslint-plugin-react": "^7.1.0",
     "gh-pages-deploy": "^0.4.2",
     "istanbul": "^0.4.4",
     "jsdom": "^9.12.0",
     "json-loader": "^0.5.4",
     "lodash.assign": "^4.0.9",
-    "mocha": "^3.2.0",
+    "mocha": "^3.4.2",
     "mocha-jsdom": "^1.1.0",
-    "react": "^15.5.0",
-    "react-dom": "^15.5.0",
-    "webpack": "^1.13.1"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "webpack": "^3.0.0"
   },
   "gh-pages-deploy": {
     "noprompt": true,
@@ -53,10 +53,10 @@
     "staticpath": "demo/dist"
   },
   "dependencies": {
-    "commonmark": "^0.24.0",
-    "commonmark-react-renderer": "^4.2.4",
+    "commonmark": "^0.27.0",
+    "commonmark-react-renderer": "^4.3.3",
     "in-publish": "^2.0.0",
-    "prop-types": "^15.5.1"
+    "prop-types": "^15.5.10"
   },
   "types": "./react-commonmark.d.ts",
   "peerDependencies": {
