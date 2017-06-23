@@ -6,13 +6,13 @@ var env = JSON.stringify(process.env.NODE_ENV || 'development');
 
 module.exports = {
     entry: [
-        path.join(__dirname, 'src', 'react-markdown.js')
+        path.join(__dirname, 'src', 'react-commonmark.js')
     ],
     output: {
-        library: 'reactMarkdown',
+        library: 'reactCommonmark',
         libraryTarget: 'umd',
         path: path.join(__dirname, 'umd'),
-        filename: 'react-markdown.js'
+        filename: 'react-commonmark.js'
     },
     externals: {
         react: {

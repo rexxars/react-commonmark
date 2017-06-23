@@ -5,14 +5,14 @@ var Parser = require('commonmark').Parser;
 var ReactRenderer = require('commonmark-react-renderer');
 var propTypes = require('prop-types');
 
-function ReactMarkdown(props) {
+function ReactCommonmark(props) {
     React.Component.call(this, props);
 }
 
-ReactMarkdown.prototype = Object.create(React.Component.prototype);
-ReactMarkdown.prototype.constructor = ReactMarkdown;
+ReactCommonmark.prototype = Object.create(React.Component.prototype);
+ReactCommonmark.prototype.constructor = ReactCommonmark;
 
-ReactMarkdown.prototype.render = function() {
+ReactCommonmark.prototype.render = function() {
     var containerProps = this.props.containerProps || {};
     var renderer = new ReactRenderer(this.props);
     var parser = new Parser(this.props.parserOptions);
@@ -39,7 +39,7 @@ ReactMarkdown.prototype.render = function() {
     );
 };
 
-ReactMarkdown.propTypes = {
+ReactCommonmark.propTypes = {
     className: propTypes.string,
     containerProps: propTypes.object,
     source: propTypes.string.isRequired,
@@ -61,13 +61,13 @@ ReactMarkdown.propTypes = {
     parserOptions: propTypes.object
 };
 
-ReactMarkdown.defaultProps = {
+ReactCommonmark.defaultProps = {
     containerTagName: 'div',
     parserOptions: {}
 };
 
-ReactMarkdown.types = ReactRenderer.types;
-ReactMarkdown.renderers = ReactRenderer.renderers;
-ReactMarkdown.uriTransformer = ReactRenderer.uriTransformer;
+ReactCommonmark.types = ReactRenderer.types;
+ReactCommonmark.renderers = ReactRenderer.renderers;
+ReactCommonmark.uriTransformer = ReactRenderer.uriTransformer;
 
-module.exports = ReactMarkdown;
+module.exports = ReactCommonmark;

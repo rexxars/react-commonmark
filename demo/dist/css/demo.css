@@ -39,7 +39,7 @@
     min-height: 500px;
 }
 
-.markdown-controls {
+.commonmark-controls {
     position: relative;
     z-index: 5;
     text-align: right;
@@ -47,12 +47,12 @@
     float: right;
 }
 
-.markdown-controls form {
+.commonmark-controls form {
     background-color: rgba(39, 40, 34, 0.5);
     margin-right: 20px;
 }
 
-.markdown-controls legend {
+.commonmark-controls legend {
     border-bottom: 0;
     color: #fff;
     font-size: 1.25em;

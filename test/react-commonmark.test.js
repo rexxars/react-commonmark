@@ -5,7 +5,7 @@ var React = require('react'),
     TestUtils = require('react-dom/test-utils'),
     jsdom = require('mocha-jsdom'),
     expect = require('chai').expect,
-    ReactMarkdown = require('../');
+    ReactCommonmark = require('../');
 
 function firstNonCommentChild(parent) {
     var children = ReactDom.findDOMNode(parent).childNodes;
@@ -22,11 +22,11 @@ function uncommentify(src) {
     return src.replace(/<!--.*?-->/g, '');
 }
 
-describe('ReactMarkdown', function() {
+describe('ReactCommonmark', function() {
     jsdom();
 
     var testDate = (new Date()).toString();
-    var testMarkdown = [
+    var testMarkup = [
         '# Demo\n\n',
         'I was *rendered* using __React__ at ' + testDate,
         ' and it was so much FUN!', '\n\n',
@@ -35,7 +35,7 @@ describe('ReactMarkdown', function() {
 
     it('should not set a class on container if no className is passed as prop', function() {
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, { source: testMarkdown })
+            React.createElement(ReactCommonmark, { source: testMarkup })
         );
 
         expect(ReactDom.findDOMNode(rendered).getAttribute('class')).to.equal(null);
@@ -43,7 +43,7 @@ describe('ReactMarkdown', function() {
 
     it('should set a class on container if className is passed as prop', function() {
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, { source: testMarkdown, className: 'foo bar' })
+            React.createElement(ReactCommonmark, { source: testMarkup, className: 'foo bar' })
         );
 
         expect(ReactDom.findDOMNode(rendered).getAttribute('class')).to.equal('foo bar');
@@ -51,8 +51,8 @@ describe('ReactMarkdown', function() {
 
     it('should set custom prop htmlFor on the container if props are passed as prop', function() {
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, {
-                source: testMarkdown,
+            React.createElement(ReactCommonmark, {
+                source: testMarkup,
                 containerProps: {
                     htmlFor: 'myElementID'
                 }
@@ -67,8 +67,8 @@ describe('ReactMarkdown', function() {
         var afterText = 'friend of a friend';
 
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, {
-                source: testMarkdown,
+            React.createElement(ReactCommonmark, {
+                source: testMarkup,
                 childBefore: React.createElement('ul', null, beforeText),
                 childAfter: React.createElement('a', null, afterText)
             })
@@ -80,8 +80,8 @@ describe('ReactMarkdown', function() {
 
     it('should set custom prop ID on the container if props are passed as prop', function() {
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, {
-                source: testMarkdown,
+            React.createElement(ReactCommonmark, {
+                source: testMarkup,
                 containerProps: {
                     id: 'myElementID'
                 }
@@ -93,7 +93,7 @@ describe('ReactMarkdown', function() {
 
     it('should have rendered a div with the right children', function() {
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, { source: testMarkdown })
+            React.createElement(ReactCommonmark, { source: testMarkup })
         );
 
         expect(ReactDom.findDOMNode(rendered).tagName).to.equal('DIV');
@@ -114,7 +114,7 @@ describe('ReactMarkdown', function() {
 
     it('can specify different container tag name', function() {
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, { source: testMarkdown, containerTagName: 'section' })
+            React.createElement(ReactCommonmark, { source: testMarkup, containerTagName: 'section' })
         );
 
         expect(ReactDom.findDOMNode(rendered).tagName).to.equal('SECTION');
@@ -122,7 +122,7 @@ describe('ReactMarkdown', function() {
 
     it('can be told to use <br> for soft-breaks', function() {
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, { source: testMarkdown, softBreak: 'br' })
+            React.createElement(ReactCommonmark, { source: testMarkup, softBreak: 'br' })
         );
 
         var strong = TestUtils.findRenderedDOMComponentWithTag(rendered, 'br');
@@ -131,7 +131,7 @@ describe('ReactMarkdown', function() {
 
     it('can be told to output sourcemaps as data attributes', function() {
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, { source: testMarkdown, sourcePos: true })
+            React.createElement(ReactCommonmark, { source: testMarkup, sourcePos: true })
         );
 
         var h1 = TestUtils.findRenderedDOMComponentWithTag(rendered, 'h1');
@@ -140,7 +140,7 @@ describe('ReactMarkdown', function() {
 
     it('can be told to escape html', function() {
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, { source: testMarkdown, escapeHtml: true })
+            React.createElement(ReactCommonmark, { source: testMarkup, escapeHtml: true })
         );
 
         var ps = TestUtils.scryRenderedDOMComponentsWithTag(rendered, 'p');
@@ -149,7 +149,7 @@ describe('ReactMarkdown', function() {
 
     it('can be told to skip HTML', function() {
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, { source: testMarkdown, skipHtml: true })
+            React.createElement(ReactCommonmark, { source: testMarkup, skipHtml: true })
         );
 
         var ps = TestUtils.scryRenderedDOMComponentsWithTag(rendered, 'p');
@@ -163,7 +163,7 @@ describe('ReactMarkdown', function() {
             return node.type !== 'Strong';
         };
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, { source: input, allowNode: filter })
+            React.createElement(ReactCommonmark, { source: input, allowNode: filter })
         );
 
         var main = ReactDom.findDOMNode(rendered).innerHTML;
@@ -179,7 +179,7 @@ describe('ReactMarkdown', function() {
         ].join('\n\n');
 
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, { source: source })
+            React.createElement(ReactCommonmark, { source: source })
         );
 
         var links = TestUtils.scryRenderedDOMComponentsWithTag(rendered, 'a');
@@ -191,9 +191,9 @@ describe('ReactMarkdown', function() {
     });
 
     it('allows specifying a custom URI-transformer', function() {
-        var src = 'Received a great [pull request](https://github.com/rexxars/react-markdown/pull/15) today';
+        var src = 'Received a great [pull request](https://github.com/rexxars/react-commonmark/pull/15) today';
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, {
+            React.createElement(ReactCommonmark, {
                 source: src,
                 transformLinkUri: function(uri) {
                     return uri.replace(/^https?:\/\/github\.com\//i, '/');
@@ -202,7 +202,7 @@ describe('ReactMarkdown', function() {
         );
 
         var links = TestUtils.scryRenderedDOMComponentsWithTag(rendered, 'a');
-        expect(ReactDom.findDOMNode(links[0]).getAttribute('href')).to.equal('/rexxars/react-markdown/pull/15');
+        expect(ReactDom.findDOMNode(links[0]).getAttribute('href')).to.equal('/rexxars/react-commonmark/pull/15');
     });
 
     it('allows a walker callback', function() {
@@ -213,7 +213,7 @@ describe('ReactMarkdown', function() {
         };
 
         var rendered = TestUtils.renderIntoDocument(
-            React.createElement(ReactMarkdown, { source: testMarkdown, walker: walker })
+            React.createElement(ReactCommonmark, { source: testMarkup, walker: walker })
         );
 
         var main = uncommentify(ReactDom.findDOMNode(rendered).innerHTML);
@@ -223,7 +223,7 @@ describe('ReactMarkdown', function() {
     it('should pass options correctly to the parser', function() {
         var src = '"He\'s gone totally off--it\'s wild."';
         var rendered = TestUtils.renderIntoDocument(
-          React.createElement(ReactMarkdown, {
+          React.createElement(ReactCommonmark, {
               source: src,
               parserOptions: { smart: true }
           })

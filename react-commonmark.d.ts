@@ -1,12 +1,12 @@
-// Type definitions for react-markdown v2.2.2
-// Project: https://github.com/rexxars/react-markdown
+// Type definitions for react-commonmark v2.5.1
+// Project: https://github.com/rexxars/react-commonmark
 // Definitions by: Ruslan Ibragimov <https://github.com/IRus>, Kohei Asai <me@axross.io>
 
 import { Component, ReactElement, ReactNode, ReactType } from 'react';
 
-declare class ReactMarkdown extends Component<ReactMarkdown.ReactMarkdownProps, {}> {}
+declare class ReactCommonmark extends Component<ReactCommonmark.ReactCommonmarkProps, {}> {}
 
-declare namespace ReactMarkdown {
+declare namespace ReactCommonmark {
   interface AllowNode {
     readonly type: string;
     readonly renderer: string;
@@ -25,7 +25,7 @@ declare namespace ReactMarkdown {
 
   export type NodeType = 'HtmlInline' | 'HtmlBlock' | 'Text' | 'Paragraph' | 'Heading' | 'Softbreak' | 'Hardbreak' | 'Link' | 'Image' | 'Emph' | 'Code' | 'CodeBlock' | 'BlockQuote' | 'List' | 'Item' | 'Strong' | 'ThematicBreak';
 
-  export interface ReactMarkdownProps {
+  export interface ReactCommonmarkProps {
     readonly className?: string;
     readonly containerProps?: any;
     readonly source: string;
@@ -56,4 +56,4 @@ declare namespace ReactMarkdown {
   export var uriTransformer: (uri: string) => string;
 }
 
-export = ReactMarkdown;
+export = ReactCommonmark;

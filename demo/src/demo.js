@@ -5,8 +5,8 @@ var ReactDOM = require('react-dom');
 var assign = require('lodash.assign');
 var Editor = require('./editor');
 var CodeBlock = require('./code-block');
-var MarkdownControls = require('./markdown-controls');
-var Markdown = require('../../');
+var CommonmarkControls = require('./commonmark-controls');
+var Commonmark = require('../../');
 var h = React.createElement;
 
 class Demo extends React.Component {
@@ -14,17 +14,17 @@ class Demo extends React.Component {
         super(props);
 
         this.state = {
-            markdownSrc: [
+            commonmarkSrc: [
                 '# Live demo\n\nChanges are automatically rendered as you type.\n\n* Follows the ',
                 '[CommonMark](http://commonmark.org/) spec\n* Renders actual, "native" React DOM ',
                 'elements\n* Allows you to escape or skip HTML (try toggling the checkboxes above)',
                 '\n* If you escape or skip the HTML, no `dangerouslySetInnerHTML` is used! Yay!\n',
                 '\n## HTML block below\n\n<blockquote>\n    This blockquote will change based ',
                 'on the HTML settings above.\n</blockquote>\n\n## How about some code?\n',
-                '```js\nvar React = require(\'react\');\nvar Markdown = require(\'react-markdown\');',
-                '\n\nReact.render(\n    <Markdown source="# Your markdown here" />,\n    document.',
+                '```js\nvar React = require(\'react\');\nvar Commonmark = require(\'react-commonmark\');',
+                '\n\nReact.render(\n    <Commonmark source="# Your commonmark/markdown here" />,\n    document.',
                 'getElementById(\'content\')\n);\n```\n\nPretty neat, eh?\n\n', '## More info?\n\n',
-                'Read usage information and more on [GitHub](//github.com/rexxars/react-markdown)\n\n',
+                'Read usage information and more on [GitHub](//github.com/rexxars/react-commonmark)\n\n',
                 '---------------\n\n',
                 'A component by [VaffelNinja](http://vaffel.ninja) / Espen Hovlandsdal'
             ].join(''),
@@ -32,13 +32,13 @@ class Demo extends React.Component {
             htmlMode: 'raw'
         };
 
-        this.onMarkdownChange = this.onMarkdownChange.bind(this);
+        this.onSourceChanged = this.onSourceChanged.bind(this);
         this.onControlsChange = this.onControlsChange.bind(this);
     }
 
-    onMarkdownChange(md) {
+    onSourceChanged(md) {
         this.setState({
-            markdownSrc: md
+            commonmarkSrc: md
         });
     }
 
@@ -50,24 +50,24 @@ class Demo extends React.Component {
         return (
             h('div', {className: 'demo'},
                 h('div', {className: 'editor-pane'},
-                    h(MarkdownControls, {
+                    h(CommonmarkControls, {
                         onChange: this.onControlsChange,
                         mode: this.state.htmlMode
                     }),
 
                     h(Editor, {
-                        value: this.state.markdownSrc,
-                        onChange: this.onMarkdownChange
+                        value: this.state.commonmarkSrc,
+                        onChange: this.onSourceChanged
                     })
                 ),
 
                 h('div', {className: 'result-pane'},
-                    h(Markdown, {
+                    h(Commonmark, {
                         className: 'result',
-                        source: this.state.markdownSrc,
+                        source: this.state.commonmarkSrc,
                         skipHtml: this.state.htmlMode === 'skip',
                         escapeHtml: this.state.htmlMode === 'escape',
-                        renderers: assign({}, Markdown.renderers, {
+                        renderers: assign({}, Commonmark.renderers, {
                             CodeBlock: CodeBlock
                         })
                     })

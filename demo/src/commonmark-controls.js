@@ -4,7 +4,7 @@ var React = require('react');
 var PropTypes = require('prop-types');
 var h = React.createElement;
 
-class MarkdownControls extends React.Component {
+class CommonmarkControls extends React.Component {
     constructor(props) {
         super(props);
 
@@ -21,7 +21,7 @@ class MarkdownControls extends React.Component {
             escapeChecked = this.props.mode === 'escape';
 
         return (
-            h('div', {className: 'markdown-controls'},
+            h('div', {className: 'commonmark-controls'},
                 h('form', {className: 'pure-form pure-form-inline'},
                     h('fieldset', null,
                         h('legend', null, 'HTML mode'),
@@ -68,13 +68,13 @@ class MarkdownControls extends React.Component {
     }
 }
 
-MarkdownControls.propTypes = {
+CommonmarkControls.propTypes = {
     mode: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired
 };
 
-MarkdownControls.defaultProps = {
+CommonmarkControls.defaultProps = {
     mode: 'raw'
 };
 
-module.exports = MarkdownControls;
+module.exports = CommonmarkControls;

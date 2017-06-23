@@ -1,6 +1,6 @@
 {
-  "name": "react-markdown",
-  "description": "Renders Markdown as React components",
+  "name": "react-commonmark",
+  "description": "Renders Commonmark/Markdown as React components",
   "version": "2.5.0",
   "keywords": [
     "commonmark",
@@ -8,8 +8,8 @@
     "react",
     "react-component"
   ],
-  "main": "src/react-markdown.js",
-  "umd": "umd/react-markdown.js",
+  "main": "src/react-commonmark.js",
+  "umd": "umd/react-commonmark.js",
   "scripts": {
     "build": "NODE_ENV=production webpack && NODE_ENV=production webpack --config webpack.config.demo.js",
     "coverage": "istanbul cover node_modules/.bin/_mocha -- --reporter spec",
@@ -19,14 +19,13 @@
     "posttest": "npm run lint",
     "qa": "npm prune && npm test && npm run build",
     "test": "mocha --reporter spec",
-    "test-travis": "istanbul cover node_modules/.bin/_mocha --report lcovonly -- --reporter spec",
     "watch": "webpack --config webpack.config.demo.js --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:rexxars/react-markdown.git"
+    "url": "git@github.com:rexxars/react-commonmark.git"
   },
-  "author": "Espen Hovlandsdal <rexxars@gmail.com>",
+  "author": "Espen Hovlandsdal <espen@hovlandsdal.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^15.0.21",
@@ -59,8 +58,8 @@
     "in-publish": "^2.0.0",
     "prop-types": "^15.5.1"
   },
-  "types": "./react-markdown.d.ts",
+  "types": "./react-commonmark.d.ts",
   "peerDependencies": {
-    "react": ">=0.13.3"
+    "react": ">=15.0.0"
   }
 }
