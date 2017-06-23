@@ -1,38 +1,38 @@
-'use strict';
+'use strict'
 
-var React = require('react');
-var PropTypes = require('prop-types');
-var CodeMirror = window.CodeMirrorEditor;
-var h = React.createElement;
+var React = require('react')
+var PropTypes = require('prop-types')
+var CodeMirror = window.CodeMirrorEditor
+var h = React.createElement
 
 class Editor extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor (props) {
+    super(props)
 
-        this.onInputChange = this.onInputChange.bind(this);
-    }
+    this.onInputChange = this.onInputChange.bind(this)
+  }
 
-    onInputChange(e) {
-        this.props.onChange(e.target.value);
-    }
+  onInputChange (e) {
+    this.props.onChange(e.target.value)
+  }
 
-    render() {
-        return (
+  render () {
+    return (
             h('form', {className: 'editor pure-form'},
                 h(CodeMirror, {
-                    mode: 'markdown',
-                    theme: 'monokai',
-                    value: this.props.value,
-                    onChange: this.onInputChange
+                  mode: 'markdown',
+                  theme: 'monokai',
+                  value: this.props.value,
+                  onChange: this.onInputChange
                 })
             )
-        );
-    }
+    )
+  }
 }
 
 Editor.propTypes = {
-    onChange: PropTypes.func.isRequired,
-    value: PropTypes.string
-};
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string
+}
 
-module.exports = Editor;
+module.exports = Editor

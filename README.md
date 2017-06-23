@@ -22,8 +22,8 @@ var ReactCommonmark = require('react-commonmark');
 var input = '# This is a header\n\nAnd this is a paragraph';
 
 ReactDOM.render(
-    <ReactCommonmark source={input} />,
-    document.getElementById('container')
+  <ReactCommonmark source={input} />,
+  document.getElementById('container')
 );
 ```
 
@@ -73,6 +73,7 @@ As the title says, inline HTML is currently broken. See [commonmark-react-render
 * `renderers` - *object* An object where the keys represent the node type and the value is a React component. The object is merged with the default renderers. The props passed to the component varies based on the type of node. See the [type renderer options](https://github.com/rexxars/commonmark-react-renderer#type-renderer-options) of `commonmark-react-renderer` for more details.
 * `transformLinkUri` - *function|null* Function that gets called for each encountered link with a single argument - `uri`. The returned value is used in place of the original. The default link URI transformer acts as an XSS-filter, neutralizing things like `javascript:`, `vbscript:` and `file:` protocols. If you specify a custom function, this default filter won't be called, but you can access it as `require('react-commonmark').uriTransformer`. If you want to disable the default transformer, pass `null` to this option.
 * `transformImageUri` - *function|null* Function that gets called for each encountered image with a single argument - `uri`. The returned value is used in place of the original.
+* `parserOptions` - *object* An object of options to pass on to the [commonmark parser](https://www.npmjs.com/package/commonmark).
 
 The possible types of elements that can be allowed/disallowed are:
 

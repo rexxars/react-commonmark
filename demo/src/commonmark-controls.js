@@ -1,80 +1,80 @@
-'use strict';
+'use strict'
 
-var React = require('react');
-var PropTypes = require('prop-types');
-var h = React.createElement;
+var React = require('react')
+var PropTypes = require('prop-types')
+var h = React.createElement
 
 class CommonmarkControls extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor (props) {
+    super(props)
 
-        this.onChange = this.onChange.bind(this);
-    }
+    this.onChange = this.onChange.bind(this)
+  }
 
-    onChange(e) {
-        this.props.onChange(e.target.value);
-    }
+  onChange (e) {
+    this.props.onChange(e.target.value)
+  }
 
-    render() {
-        var rawChecked = this.props.mode === 'raw',
-            skipChecked = this.props.mode === 'skip',
-            escapeChecked = this.props.mode === 'escape';
+  render () {
+    var rawChecked = this.props.mode === 'raw'
+    var skipChecked = this.props.mode === 'skip'
+    var escapeChecked = this.props.mode === 'escape'
 
-        return (
-            h('div', {className: 'commonmark-controls'},
-                h('form', {className: 'pure-form pure-form-inline'},
-                    h('fieldset', null,
-                        h('legend', null, 'HTML mode'),
+    return (
+      h('div', {className: 'commonmark-controls'},
+        h('form', {className: 'pure-form pure-form-inline'},
+          h('fieldset', null,
+            h('legend', null, 'HTML mode'),
 
-                        h('label', {htmlFor: 'raw-html', className: 'pure-checkbox'},
-                            'Raw ',
-                            h('input', {
-                                id: 'raw-html',
-                                name: 'html-mode',
-                                type: 'radio',
-                                value: 'raw',
-                                checked: rawChecked,
-                                onChange: this.onChange
-                            })
-                        ),
+            h('label', {htmlFor: 'raw-html', className: 'pure-checkbox'},
+              'Raw ',
+              h('input', {
+                id: 'raw-html',
+                name: 'html-mode',
+                type: 'radio',
+                value: 'raw',
+                checked: rawChecked,
+                onChange: this.onChange
+              })
+            ),
 
-                        h('label', {htmlFor: 'escape-html', className: 'pure-checkbox'},
-                            'Escape ',
-                            h('input', {
-                                id: 'escape-html',
-                                name: 'html-mode',
-                                type: 'radio',
-                                value: 'escape',
-                                checked: escapeChecked,
-                                onChange: this.onChange
-                            })
-                        ),
+            h('label', {htmlFor: 'escape-html', className: 'pure-checkbox'},
+              'Escape ',
+              h('input', {
+                id: 'escape-html',
+                name: 'html-mode',
+                type: 'radio',
+                value: 'escape',
+                checked: escapeChecked,
+                onChange: this.onChange
+              })
+            ),
 
-                        h('label', {htmlFor: 'skip-html', className: 'pure-checkbox'},
-                            'Skip ',
-                            h('input', {
-                                id: 'skip-html',
-                                name: 'html-mode',
-                                type: 'radio',
-                                value: 'skip',
-                                checked: skipChecked,
-                                onChange: this.onChange
-                            })
-                        )
-                    )
-                )
+            h('label', {htmlFor: 'skip-html', className: 'pure-checkbox'},
+              'Skip ',
+              h('input', {
+                id: 'skip-html',
+                name: 'html-mode',
+                type: 'radio',
+                value: 'skip',
+                checked: skipChecked,
+                onChange: this.onChange
+              })
             )
-        );
-    }
+          )
+        )
+      )
+    )
+  }
 }
 
 CommonmarkControls.propTypes = {
-    mode: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
-};
+  mode: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
+}
 
 CommonmarkControls.defaultProps = {
-    mode: 'raw'
-};
+  mode: 'raw'
+}
 
-module.exports = CommonmarkControls;
+module.exports = CommonmarkControls
