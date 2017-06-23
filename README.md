@@ -1,6 +1,6 @@
 # react-commonmark
 
-Renders Commonmark (a strongly defined, highly compatible specification of Markdown) as pure React components.
+Renders Commonmark (a strongly defined, highly compatible specification of Markdown) as pure React components. If you want to support features not in the commonmark specification, you probably want to use [react-markdown](https://github.com/rexxars/react-markdown) instead.
 
 [![npm version](http://img.shields.io/npm/v/react-commonmark.svg?style=flat-square)](http://browsenpm.org/package/react-commonmark)[![Build Status](http://img.shields.io/travis/rexxars/react-commonmark/master.svg?style=flat-square)](https://travis-ci.org/rexxars/react-commonmark)
 
