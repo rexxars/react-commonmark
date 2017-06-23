@@ -5,7 +5,7 @@ var webpack = require('webpack')
 var prod = process.env.NODE_ENV === 'production'
 
 var config = {
-  devtool: prod ? null : 'eval',
+  devtool: prod ? false : 'eval',
 
   entry: [
     path.join(__dirname, 'demo', 'src', 'demo.js')
@@ -36,10 +36,7 @@ var config = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loader: 'buble'
-    }, {
-      test: /\.json$/,
-      loader: 'json'
+      loader: 'buble-loader'
     }]
   },
 
@@ -55,7 +52,6 @@ if (prod) {
     }
   }))
   config.plugins.push(new webpack.optimize.DedupePlugin())
-  config.plugins.push(new webpack.optimize.OccurenceOrderPlugin(true))
   config.plugins.push(new webpack.optimize.UglifyJsPlugin())
 }
 

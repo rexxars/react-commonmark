@@ -22,17 +22,10 @@ module.exports = {
       amd: 'react'
     }
   },
-  module: {
-    loaders: [{
-      test: /\.json$/,
-      loader: 'json'
-    }]
-  },
   plugins: [
     new webpack.DefinePlugin({'process.env.NODE_ENV': env}),
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.UglifyJsPlugin()
   ]
 }
