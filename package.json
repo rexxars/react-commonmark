@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "commonmark": "^0.29.1",
-    "commonmark-react-renderer": "^4.3.3",
+    "@sonatype/commonmark-react-renderer": "^4.3.6",
     "in-publish": "^2.0.0",
     "prop-types": "^15.5.10"
   },

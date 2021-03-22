@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@sonatype/commonmark-react-renderer@^4.3.6":
+  version "4.3.6"
+  resolved "https://registry.yarnpkg.com/@sonatype/commonmark-react-renderer/-/commonmark-react-renderer-4.3.6.tgz#c08e3a812850bcb5e31b321e6f6a7bfb0ab31028"
+  integrity sha512-MA6p6SR9nOCdELtYLOGWBNMHyQOJitIHuu024w77rPAhhV7Ut7//vseoDrypyeHJJf0qJ6wGSc67TC7xkmplsg==
+  dependencies:
+    lodash.assign "^4.2.0"
+    lodash.isplainobject "^4.0.6"
+    pascalcase "^0.1.1"
+    xss-filters "^1.2.6"
+
 "@types/react@^15.0.31":
   version "15.0.31"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.31.tgz#21dfc5d41ee1600ff7d7b738ad21a9502aa3ecf2"
@@ -541,16 +551,6 @@ commander@2.9.0, commander@^2.9.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.9.0.tgz#9c99094176e12240cb22d6c5146098400fe0f7d4"
   dependencies:
     graceful-readlink ">= 1.0.0"
-
-commonmark-react-renderer@^4.3.3:
-  version "4.3.3"
-  resolved "https://registry.yarnpkg.com/commonmark-react-renderer/-/commonmark-react-renderer-4.3.3.tgz#9c4bca138bc83287bae792ccf133738be9cbc6fa"
-  dependencies:
-    in-publish "^2.0.0"
-    lodash.assign "^4.2.0"
-    lodash.isplainobject "^4.0.6"
-    pascalcase "^0.1.1"
-    xss-filters "^1.2.6"
 
 commonmark@^0.29.1:
   version "0.29.3"
