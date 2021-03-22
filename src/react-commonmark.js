@@ -2,7 +2,7 @@
 
 var React = require('react')
 var Parser = require('commonmark').Parser
-var ReactRenderer = require('commonmark-react-renderer')
+var ReactRenderer = require('@sonatype/commonmark-react-renderer')
 var propTypes = require('prop-types')
 
 function ReactCommonmark (props) {

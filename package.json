@@ -51,8 +51,8 @@
     "staticpath": "demo/dist"
   },
   "dependencies": {
-    "commonmark": "^0.27.0",
-    "commonmark-react-renderer": "^4.3.3",
+    "commonmark": "^0.29.1",
+    "@sonatype/commonmark-react-renderer": "^4.3.6",
     "in-publish": "^2.0.0",
     "prop-types": "^15.5.10"
   },
